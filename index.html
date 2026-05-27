@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+    <head>
+        <meta charset="UFT-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DayFlow Pro</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wgh t@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+        <!--FireBase-->
+        <script src="https://cdn.jsdelivr.net/npm/firebase-app-compat.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/firebase-app@9.23.0/firebase-auth-compat.min.js"></script>
+        <script src="https:cdn.jsdelivr.net/npm/firebase@9.23.0/firebase-firestore-compat.min.js"></script>
+</head>
+<body>
+    <!--Login-->
+    <div id="login-wall">
+    <div class="lw-box">
+        <div class="lw-logo">Day<em>Flow</em>Pro</div>
+        <div class="lw-sub">Tu organizador- accede o registrate</div>
+
+        <div id="lw-status" style="display:none;text-align:center;padding:10px 0 6px">
+            <div id="lw-status-icon" style="font-size:22px;margin-bottom:4px"></div>
+            <div id="lw-status-msg" style="font-size:12.5px;color:var(--ink3)">Conectando...</div>
+            <button id="lw-retry-btn" onclick="retryFbInit()" style="display:none;margin-top:10px;padding:8px 20px; background:var(--ink);color:var(--paper);border:none;border-radius:8px;font:inherit;font-size:12.5px;cursor:pointer"></button>
+        </div>
+
+        <div id="lw-form">
+            <div class="lw-tabs">
+                <button class="lw-tab on" id="lt-in" onclick="ltab('in')">Iniciar sesión</button>
+                <button class="lw-tab " id="lt-reg" onclick="ltab('reg')">Registrarse</button>
+        </div>
