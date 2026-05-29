@@ -30,3 +30,32 @@
                 <button class="lw-tab on" id="lt-in" onclick="ltab('in')">Iniciar sesión</button>
                 <button class="lw-tab " id="lt-reg" onclick="ltab('reg')">Registrarse</button>
         </div>
+        <div class="lw-note">Datos en la nube- accede desde cualquier dispostivo.</div>
+        </div>
+    </div> 
+    <!--app-->
+    <div class="app">
+        
+        <!--SideBar(Desktop)-->
+        <aside class="sidebar" id="SB">
+            <div class="sb-brand" onclick="toggleSB()">
+                <div class="sb-mark">D</div>
+                <div class="sb-name">DayFlow</div>
+                </div>
+                <div class="sbi act" data-s="dashboard" onclick="goTo('dashboard')" title="Dashboard"><i class="fas fa-house"></i><span class="sbi-lbl"></span></div>
+                <div class="sbi" data-s="store" onclick="goTo('store')" title="Tienda XP"></i><span class="sbi-lbl"></span></div>
+                <div class="sb-div"></div>
+                <div class="sbi locked" id="sbi-colegio" data-s="colegio" onclick="tryNav('colegio')"  title="Colegio"><i class="fas fa-school"></i><span class="sbi-lbl">Colegio</span></div>
+                <div class="sbi locked" id="sbi-organizacion" data-s="organizacion" onclick="tryNav('organizacion')" title="Organizacion"><i class="fas fa-broom"></i><span class="sbi-lbl">Organización</span></div>
+                <div class="sbi locked" id="sbi-tareas" data-s="tareas" onclick="tryNav('tareas')" title="Tareas"><i class="fas fa-book-open"></i><span class="sbi-lbl">Tareas</span></div>
+                <div class="sbi-locked" id="sbi-evidencia" data-s="evidencia" onclick="tryNav('evidencia')" title="Evidencia"><i class="fas fa-camera"></i><span class="sbi-lbl"></span></div>
+                <div class="sb-div"></div>
+                <div class="sb-bot">
+                    <div class="sb-prog">
+                        <div class="sb-ring">
+                            <svg width="36" height="36" viewBox="0 0 36 36">
+                                <circle class="sbr-bg" cx="18" cy="18" r="13"/>
+                                <circle class="sbr-fill" id="sbr" cx="18" cy="18" r="13"/>
+                            </svg>
+
+
