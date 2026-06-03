@@ -1,61 +1,80 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
     <head>
-        <meta charset="UFT-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DayFlow Pro</title>
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wgh t@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <!--FireBase-->
-        <script src="https://cdn.jsdelivr.net/npm/firebase-app-compat.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/firebase-app@9.23.0/firebase-auth-compat.min.js"></script>
-        <script src="https:cdn.jsdelivr.net/npm/firebase@9.23.0/firebase-firestore-compat.min.js"></script>
-</head>
-<body>
-    <!--Login-->
-    <div id="login-wall">
-    <div class="lw-box">
-        <div class="lw-logo">Day<em>Flow</em>Pro</div>
-        <div class="lw-sub">Tu organizador- accede o registrate</div>
+        </head>
+        <body>
+            <div id="loginWall" class="login-wall">
+                <section class="login-box">
+                    <div>
+                        <div class="kicker">Rutina diaria con XP</div>
+                        <h1>DayFlow Pro</h1>
+                        <p class="muted">Entra con tu usuario normal. DayFlow se encarga de proteger tu sesión.</p>
+                    </div>
+                    <div class="card grid">
+                        <div class="field">
+                            <label>Usuario</label>
+                            <input id="loginUser" autocomplete="username" placeholder="tuusuario">
+                        </div>
+                        <div id="authError" class="muted"></div>
+                        <div class="row">
+                            <button id="loginBtn" class="btn" disabled>
+                                <i class="fa-solid fa-right-to-bracket"></i>Entrar
+                            </button>
+                            <button id="regBtn" class="btn alt" disabled>
+                                <i class="fa-solid fa-user-plus"></i>Crear cuenta
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-        <div id="lw-status" style="display:none;text-align:center;padding:10px 0 6px">
-            <div id="lw-status-icon" style="font-size:22px;margin-bottom:4px"></div>
-            <div id="lw-status-msg" style="font-size:12.5px;color:var(--ink3)">Conectando...</div>
-            <button id="lw-retry-btn" onclick="retryFbInit()" style="display:none;margin-top:10px;padding:8px 20px; background:var(--ink);color:var(--paper);border:none;border-radius:8px;font:inherit;font-size:12.5px;cursor:pointer"></button>
-        </div>
+            <div class="app">
+                <aside class="sidebar">
+                    <button class="profile-entry" data-screen="stats" title="Estadisticas semanales">
+                        <img id="sideAvatar" class="side-avatar" alt="Avatar">
+                        <span id="sideName" class="profile-name">DayFlow</span>
+                    </button>
 
-        <div id="lw-form">
-            <div class="lw-tabs">
-                <button class="lw-tab on" id="lt-in" onclick="ltab('in')">Iniciar sesión</button>
-                <button class="lw-tab " id="lt-reg" onclick="ltab('reg')">Registrarse</button>
-        </div>
-        <div class="lw-note">Datos en la nube- accede desde cualquier dispostivo.</div>
-        </div>
-    </div> 
-    <!--app-->
-    <div class="app">
-        
-        <!--SideBar(Desktop)-->
-        <aside class="sidebar" id="SB">
-            <div class="sb-brand" onclick="toggleSB()">
-                <div class="sb-mark">D</div>
-                <div class="sb-name">DayFlow</div>
-                </div>
-                <div class="sbi act" data-s="dashboard" onclick="goTo('dashboard')" title="Dashboard"><i class="fas fa-house"></i><span class="sbi-lbl"></span></div>
-                <div class="sbi" data-s="store" onclick="goTo('store')" title="Tienda XP"></i><span class="sbi-lbl"></span></div>
-                <div class="sb-div"></div>
-                <div class="sbi locked" id="sbi-colegio" data-s="colegio" onclick="tryNav('colegio')"  title="Colegio"><i class="fas fa-school"></i><span class="sbi-lbl">Colegio</span></div>
-                <div class="sbi locked" id="sbi-organizacion" data-s="organizacion" onclick="tryNav('organizacion')" title="Organizacion"><i class="fas fa-broom"></i><span class="sbi-lbl">Organización</span></div>
-                <div class="sbi locked" id="sbi-tareas" data-s="tareas" onclick="tryNav('tareas')" title="Tareas"><i class="fas fa-book-open"></i><span class="sbi-lbl">Tareas</span></div>
-                <div class="sbi-locked" id="sbi-evidencia" data-s="evidencia" onclick="tryNav('evidencia')" title="Evidencia"><i class="fas fa-camera"></i><span class="sbi-lbl"></span></div>
-                <div class="sb-div"></div>
-                <div class="sb-bot">
-                    <div class="sb-prog">
-                        <div class="sb-ring">
-                            <svg width="36" height="36" viewBox="0 0 36 36">
-                                <circle class="sbr-bg" cx="18" cy="18" r="13"/>
-                                <circle class="sbr-fill" id="sbr" cx="18" cy="18" r="13"/>
-                            </svg>
+                    <div class="rule"></div>
 
+                    <button class="nav-item active" data-screen="dashboard" title="Dashboard">
+                        <i class="fa-solid fa-house"></i>
+                        <span class="label" data-i18n="dashboard">Dashboard</span>
+                    </button>
 
+                    <button class="nav-item" data-screen="modulos" title="Mis modulos">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                        <span class="label" data-i18n="modules">Mis Módulos</span>
+                    </button>
+                    <div id="moduleNav"></div>
+
+                    <button class="nav-item" data-screen="recordatorios" title="Recordatorios">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="label" data-i18n="reminders">Recordatorios</span>
+                    </button>
+
+                    <div class="rule"></div>
+
+                    <button class="nav-item locked" data-step="colegio" data-screen="colegio" title="Horario">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span class="label" data-i18n="schedule">Horario</span>
+                    </button>
+
+                    <button class="nav-item locked" data-step="organizacion" data-screen="organizacion" title="Organización">
+                        <i class="fa-solid fa-broom"></i>
+                        <span class="label" data-i18n="organization">Organización</span>
+                    </button>
+
+                    <button class="nav-item locked" data-step="tareas" data-screen="tareas" title="Tareas">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="label" data-i18n="tasks">Tareas</span>
+                    </button>
+
+ 
