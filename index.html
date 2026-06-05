@@ -199,5 +199,51 @@
                                 </div>
                             </div>
                         </section>
+                        <section id="stats" class="screen">
+                            <div class="between">
+                                <h2 data-i18n="weekly_stats">Estadísticas</h2>
+                                <span class="badge">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span id="statsTotal">0h</span>
+                                </span>
+                            </div>
+
+                            <div class="grid dash-grid" style="margin-top:18px">
+                                <div class="card">
+                                    <div class="between">
+                                        <h3 data-i18n="week">Semana</h3>
+                                        <span class="badge" data-i18n="tracked_time">Tiempo trackeado</span>
+                                </div>
+                                <div id="statsBars" class="bars">
+                            </div>
+
+                            <div class="card grid">
+                                <h3 data-i18n="tracking_rules">Cómo se cuentan las horas</h3>
+                                <p class="muted" data-i18n="tracking_rules_text">
+                                    DayFlow suma tiempo cuando la página está abierta y visible. Si estudias con YouTube o Spotify, activa el tracking externo antes de salir
+                                </p>
+                                <button id="statsTrackBtn" class="btn">
+                                    <i class="fa-solid fa-stopwatch"></i>
+                                    <span data-i18n="start_tracking">Iniciar tracking</span>
+                                </button>
+                            </div>
+                                </div>
+                                </section>
+
+                                <section id="colegio" class="screen">
+                                    <div class="between">
+                                        <h2 data-i18n="my_schedule">Mi Horario</h2>
+                                        <button id="doneSchool" class="btn green">
+                                            <i class="fa-solid fa-check"></i>
+                                            <span data-i18n="complete">Completar</span>
+                                        </button>
+                                    </div>
+                                    <div class="panel" style="margin-top:18px">
+                                        <div id="scheduleView"></div>
+                                    </div>
+                                </section>
+
+                                    
+                        
                                 
                             
