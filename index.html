@@ -276,11 +276,125 @@
                                     <div class="between">
                                         <h2 data-i18n="tasks">Tareas</h2>
                                         <button id="doneTasks" class="btn green">
-                                            <i class="fa-solid fa-check"
+                                            <i class="fa-solid fa-check"></i>
+                                            <span data-i18n="complete">Completar</span>
+                                        </button>
                                     </div>
-                                
 
-                                    
-                        
-                                
-                            
+                                    <div class="grid" style="margin-top:18px">
+                                        <div class="card">
+                                            <label class="toggle">
+                                                <input id="hasTasks" type="checkbox">
+                                                <span data-i18n="taks_today">Tengo tareas hoy</span>
+                                            </label>
+                                        </div>
+
+                                        <div id="tasksPanel" class="grid hidden">
+                                            <div class="card">
+                                                <div class="between">
+                                                    <h3>Lista</h3>
+                                                    <button id="addTaskBtn" class="icon-btn" title="Añadir tarea">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                            </div>
+                                            <div id="taskList" class="grid" style="margin-top:12px"></div>
+                                            </div>
+
+                                            <div class="card timer-wrap">
+                                                <div id="pomTimer" class="timer"></div>
+                                                <div class="dots" id="pomDots"></div>
+                                                <div class="row">
+                                                    <button id="pomStart" class="btn">
+                                                        <i class="fa-solid fa-play"></i>
+                                                        <span data-i18n="start">Iniciar</span>
+                                                    </button>
+
+                                                    <button id="pomPause" class="btn alt">
+                                                        <i class="fa-solid fa-pause"></i>
+                                                        <span data-i18n="pause">Pausar</span>
+                                                    </button>
+
+                                                    <button id="pomReset" class="btn ghost">
+                                                        <i class="fa-solid fa-rotate-left"></i>
+                                                        <span data-i18n="reset">Reiniciar</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section id="evidencia" class="screen">
+                                    <div class="between">
+                                        <h2 data-i18n="evidence">Evidencia</h2>
+                                        <button id="finishDayBtn" class="btn gold">
+                                            <i class="fa-solid fa-flag-checkered"></i>
+                                            <span data-i18n="finish_day">Finalizar día</span>
+                                        </button>
+                                    </div>
+                                    <div class="grid" style="margin-top:18px">
+                                        <div id="dropZone" class="drop">
+                                        <div>
+                                            <i class="fa-solid fa-cloud-arrow-up fa-2x"></i>
+                                            <p data-i18n="drop_images">Arrastra imágenes o haz clic para subir</p>
+                                        </div>
+                                        </div>
+                                        <input id="evidenceInput" type="file" accept="image/*" multiple class="hidden">
+                                        <div id="evidenceGrid" class="thumb-grid"></div>
+                                    </div>
+                                </section>
+
+                                <section id="store" class="screen">
+                                    <div class="between">
+                                        <h2 data-i18n="store">Tienda XP</h2>
+                                        <span class="badge">
+                                            <i class="fa-solid fa-coins"></i>
+                                            <span id="storeXP">0</span> XP
+                                        </span>
+                                    </div>
+
+                                    <div class="card notice" style="margin:18px 0">
+                                        <h3 data-i18n="reward_notice_title">Tus recompensas, tu esfuerzo</h3>
+                                        <p class="muted" data-i18n="reward_notice_text">
+
+                                            Los creadores de DayFlow no entregamos estas recompensas. Son un reconocimiento que tú mismo te das por todo el esfuerzo y dedicación que has puesto en tu trabajo. Cada XP que ves aquí lo ganaste con tu propio empeño. ¡Mereces celebrarlo! ✨
+                                        </p>
+                                    </div>
+
+                                    <div class="card grid" style="margin-bottom:18px">
+                                        <div class="between">
+                                            <h3 data-i18n="my_rewards">Mis recompensas</h3>
+                                            <span class="badge" id="redeemedCount">0</span>
+                                        </div>
+                                        <div id="redeemedGrid" class="redeemed-grid grid"></div>
+                                    </div>
+
+                                    <div id="storeGrid" class="store-grid grid"></div>
+                                </section>
+
+                                <section id="modulos" class="screen">
+                                    <div class="between">
+                                        <h2 data-i18n="modules">Mis Módulos</h2>
+                                    </div>
+
+                                    <div class="card grid" style="margin:18px 0">
+                                        <div class="grid config-grid">
+                                            <div class="field">
+                                                <label data-i18n="emoji">Emoji</label>
+                                                <input id="modEmoji" maxlenght="4" value="✨">
+                                    </div>
+
+                                    <div class="field">
+                                        <label data-i18n="name">Nombre</label>
+                                        <input id="modName" data-ph="reading" placeholder="Lectura">
+                                    </div>
+
+                                    <div class="field">
+                                        <label data-i18n="type">Tipo</label>
+                                        <select id="modType">
+                                            <option value="timer" data-i18n="timer_notes">Timer + notas</option>
+                                            <option value="notes" data-i18n="notes">Notas</option>
+                                            <option value="checklist" data-i18n="checklist">Checklist</option>
+                                            <option value="study" data-i18n="study_block">Bloque de estudio</option>
+                                            <option value="reading" data-i18n="reading_block">Lectura</option>
+                                    </div>
