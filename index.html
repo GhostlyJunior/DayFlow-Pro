@@ -397,4 +397,62 @@
                                             <option value="checklist" data-i18n="checklist">Checklist</option>
                                             <option value="study" data-i18n="study_block">Bloque de estudio</option>
                                             <option value="reading" data-i18n="reading_block">Lectura</option>
+                                            <option value="workout" data-i18n="workout_block">Ejercicio</option>
+                                            <option value="habit" data-i18n="habit_block">Hábito</option>
+                                            <option value="project" data-i18n="project_block">Proyecto</option>
+                                            <option value="journal" data-i18n="journal_block">Diario</option>
+                                        </select>
                                     </div>
+
+                                    <div class="field">
+                                        <label data-i18n="minutes">Minutos</label>
+                                        <input id="modMins" type="number" min="1" value="20">
+                                    </div>
+                                        </div>
+
+                                        <button id="createModule" class="btn">
+                                            <i class="fa-solid fa-plus"></i>
+                                            <span data-i18n="create_module">Crear módulo</span>
+                                        </button>
+                                    </div>
+
+                                    <div id="modulesGrid" class="modules-grid grid"></div>
+                                </section>
+
+                                <section id="moduleDetail" class="screen">
+                                    <div id="moduleDetailContent"></div>
+                                </section>
+
+                                <section id="recordatorios" class="screen">
+                                    <div class="between">
+                                        <h2 data-i18n="reminders">Recordatorios</h2>
+                                    </div>
+
+                                    <div class="card grid" style="margin:18px 0">
+                                        <div class="grid config-grid">
+                                            <div class="field">
+                                                <label data-i18n="time">Hora</label>
+                                                <input id="remTime" type="time">
+                                            </div>
+
+                                            <div class="field">
+                                                <label data-i18n="text">Texto</label>
+                                                <input id="remText" data-ph="drink_water" placeholder="Tomar agua">
+                                            </div>
+                                        </div>
+                                        
+                                        <button id="addReminder" class="btn">
+                                            <i class="fa-solid fa-plus"></i>
+                                            <span data-i18n="add">Agregar</span>
+                                        </button>
+                                    </div>
+                                    <div id="remindersList" class="grid"></div>
+                                </section>
+
+                                <section id="configuracion" class="screen">
+                                    <h2 data-i18n="settings">Configuración</h2>
+
+                                    <div class="config-grid grid" style="margin-top:18px">
+                                        <div class="card grid">
+                                            <h3 data-i18n="profile">Perfil</h3>
+                                            <input id="avatar"
