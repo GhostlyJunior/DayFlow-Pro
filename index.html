@@ -455,4 +455,22 @@
                                     <div class="config-grid grid" style="margin-top:18px">
                                         <div class="card grid">
                                             <h3 data-i18n="profile">Perfil</h3>
-                                            <input id="avatar"
+                                            <input id="avatarInput" type="file" accept="image/*" class="hidden">
+                                            <img id="profileAvatar" class="avatar" style="width:86px;height:86px;cursor:pointer" alt="Avatar">
+
+                                            <div class="field">
+                                                <label data-i18n="display_name">Nombre para mostrar</label>
+                                                <input id="displayName">
+                                            </div>
+
+                                            <button id="saveProfile" class="btn" data-i18n="save_profile">Guardar perfil</button>
+                                        </div>
+
+                                        <div class="card grid">
+                                            <h3 data-i18n="lenguage">Idioma</h3>
+                                            <div class="pillbar">
+                                                <button class="pill" data-lang="es">ES</button>
+                                                  <button class="pill" data-lang="en">EN</button>
+                                                    <button class="pill" data-lang="pt">PT</button>
+                                            </div>
+                                        </div>
