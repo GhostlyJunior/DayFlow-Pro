@@ -474,3 +474,109 @@
                                                     <button class="pill" data-lang="pt">PT</button>
                                             </div>
                                         </div>
+
+                                        <div class="card grid">
+                                            <h3 data-i18n="pom_times">Tiempos de Pomodoro</h3>
+
+                                            <div class="field">
+                                                <label data-i18n="work">Trabajo</label>
+                                                <input id="cfgFocus" type="number" min="1">
+                                            </div>
+
+                                            <div class="field">
+                                                <label data-i18n="short_break">Descanso corto</label>
+                                                <input id="cfgBreak" type="number" min="1">
+                                            </div>
+
+                                            <div class="field">
+                                                <label data-i18n="long_break">Descanso largo</label>
+                                                <input id="cfgLong" type="number" min="1">
+                                            </div>
+
+                                            <button id="savePom" class="btn" data-i18n="save">Guardar</button>
+                                        </div>
+
+                                        <div class="card grid">
+                                            <h3 data-i18n="org_time">Tiempo de Organización</h3>
+
+                                            <div class="field">
+                                                <label data-i18n="minutes">Minutos</label>
+                                                <input id="cfgOrg" type="number" min="1">
+                                            </div>
+
+                                            <button id="saveOrg" class="btn" data-i18n="save">Guardar</button>
+                                        </div>
+
+                                        <div class="card grid" style="grid-column:1/-1">
+                                            <h3 data-i18n="day-schedule">Horario del día</h3>
+                                            <div class="grid config-grid">
+                                                <div class="field">
+                                                    <label data-i18n="time">Hora</label>
+                                                    <input id="schTime" placeholder="7:00-8:00">
+                                                </div>
+
+                                                <div class="field">
+                                                    <label data-i18n="subject">Materia</label>
+                                                    <input id="schSubject" data-ph="math" placeholder="Matemáticas">
+                                                </div>
+
+                                                <div class="field">
+                                                    <label data-i18n="type">Tipo</label>
+                                                    <select id="schType">
+                                                        <option>Matemáticas</option>
+                                                        <option>Lenguaje</option>
+                                                        <option>Ciencias</option>
+                                                        <option>Sociales</option>
+                                                        <option>Artística</option>
+                                                        <option>Ed. Física</option>
+                                                        <option>Ética</option>
+                                                        <option>Otro</option>
+                                                        <option>Descanso</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <button id="addSchedule" class="btn alt" data-i18n="add">Añadir</button>
+                                                <button id="saveSchedule" class="btn" data-i18n="save_schedule">Guardar horario</button>
+                                            </div>
+
+                                            <div id="scheduleEditor" class="grid"></div>
+                                        </div>
+
+                                        <div class="card grid">
+                                            <h3 data-i18n="suggestions">Sugerencias</h3>
+
+                                            <div class="field">
+                                                <label data-i18n="message">Mensaje</label>
+                                                <textarea id="suggestionText" data-ph="suggestions_ph" placeholder="Escribe tu sugerencia"></textarea>
+                                            </div>
+                                            <button id="sendSuggestion" class="btn">
+                                                <i class="fa-solid fa-paper-plane"></i>
+                                                <span data-i18n="send_suggestion">Enviar sugerencia</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="card grid">
+                                            <h3 data-i18n="account">Cuenta</h3>
+                                            <button id="resetStreak" class="btn alt" data-i18n="reset_streak">Reiniciar racha</button> 
+                                            <button id="resetProgress" class="btn ghost" data-i18n="reset_progress">Resetear progreso</button>
+                                            <button id="logoutBtn" class="btn" data-i18n="logout">Cerrar sesión</button>
+                                        </div>
+                                    </div>
+                                </section>
+                </main>
+            </div>
+            <div id="modal" class="modal">
+            <div class="modal-card">
+                <h2 id="modalTitle"></h2>
+                <p id="modalText" class="muted" style="margin:12px 0 18px"></p>
+                <button id="modalOk" class="btn">Continuar</button>
+            </div>
+            </div>
+
+            <div id="toast" class="toast"></div>
+            
+            <script src="app.js"></script>
+        </body>
+</html>
