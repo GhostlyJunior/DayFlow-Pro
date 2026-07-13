@@ -30,8 +30,8 @@ const QUOTES = {
       {t:'"La disciplina también puede sentirse elegante."',a:"DayFlow"},
       {t:'"Un paso completo cambia el día."',a:"DayFlow"},
     {t:'"Tu energía merece dirección."',a:"DayFlow"},
-    {t:'"Pequeños cierres, grandes rachas."',a:"DayFlow"}
-    {t:'"El foco se construye con cuidado."',a:"DayFlow"}
+    {t:'"Pequeños cierres, grandes rachas."',a:"DayFlow"},
+    {t:'"El foco se construye con cuidado."',a:"DayFlow"},
     {t:'"Hoy también cuenta."',a:"DayFlow"}
   ],
   en:[
@@ -86,4 +86,36 @@ Object.assign(LANGS.es,{
   habit_block:"Hábito",
   project_block:"Proyecto",
   journal_block:"Diario"
+});
+
+Object.assign(LANGS.en,{
+  hours_note:"Counted while you are in DayFlow or while external tracking is active.",
+  weekly_stats:"Weekly stats",
+  tracked_time:"Tracked time",
+  tracking_rules:"How hours are counted.",
+  tracking_rules_text:"DayFlow adds time when the page is open and visible.If you study with YouTube or Spotify, turn on external tracking before leaving.",
+  start_tracking:"Start tracking",
+  stop_tracking:"Stop tracking",
+  study_block:"Study block",
+  reading_block:"Reading",
+  workout_block:"Workout",
+  habit_block:"Habit",
+  project_block:"Project",
+  journal_block:"Journal"
+});
+
+Object.assign(LANGS.pt,{
+  hours_note:"Contadas enquanto você está no DayFlow ou com o tracking externo ativo.",
+  weekly_stats:"Estatísticas semanais",
+  tracked_time:"Tempo rastreado",
+  tracking_rules:"Como as horas são contadas",
+  tracking_rules_text:"O DayFlow soma tempo quando a página está aberta e visível. Se estudar com YouTube ou Spotify, ative o tracking externo antes de sair.",
+  start_tracking:"Iniciar tracking",
+  stop_tracking:"Parar tracking",
+  study_block:"Bloco de estudo",
+  reading_block:"Leitura",
+  workout_block:"Exercício",
+  habit_block:"Hábito",
+  project_block:"Projeto",
+  journal_block:"Diário"
 });
