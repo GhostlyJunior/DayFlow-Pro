@@ -119,3 +119,84 @@ Object.assign(LANGS.pt,{
   project_block:"Projeto",
   journal_block:"Diário"
 });
+
+let app, auth, db, userRef, uid;
+let S={...DEF};
+let saveTimer = null;
+let currentScreen = "dashboard";
+let modalNextScreen = null;
+let lastTrackAt = Date.now();
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...documentquerySelectorAll(s)];
+const today = () => new Date().tolSOString().slice(0,10);
+const clone = v => JSON.parse(JSON.stringify(v));
+const t = k => (LANGS[S.lang] || LANGS.es)[K] || k;
+
+function loadScript(src){
+  return new Promise((resolve,reject))=>{
+    const s=document.createElement("script");
+    const timer=setTimeout(()=>reject(new Error(src))};
+    document.head.appendChild(s);
+  });
+}
+
+async function loadFirebase(){
+if(typeof firebase!=="undefined") return;
+const base="https://cdn.jsdelivr.net/npm/firebase@9.23.0/";
+await loadScript(base+"firebase-app-compat.min.js");
+await loadScript(base+"firebase-auth-compat.min.js");
+await loadScript(base+"firebase-firestore-compat.min.js");
+}
+
+function intiFirebase(){
+  if(firebaseConfig.apiKey.startsWith("TU_")){
+    $("#authError").textContent = "Configura firebaseConfig en index.html para activar login y sincronización";
+    $("#loginBtn").disabled = $(#regBtn).disabled = true;
+    return;
+  }
+
+if(typeof firebase==="undefined"){
+  $("#authError").textContent = "Los scripts de Firebase no cargarón. Verifica tu conexión a internet";
+  $("#loginBtn").disabled = $(#regBtn).disabled = true;
+  return;
+}
+
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+    db = firebase.firestore();
+
+    $("authError").textContent = "";
+    $("#loginBtn"),disabled = $("#regBtn").disabled = false;
+
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+auth.onAuthStateChanged(asyncuser=>{
+  if(!user){
+    $("#loginWall").style.display="grid";
+    return;
+  }
+
+  uid=user.uid;
+  userRef=db.collection("users").doc(uid);
+
+  const snap=await userRef.get();
+  $={...clone(DEF),...(snap.exists?snap.data():{})};
+
+  await saveNow();
+
+  $("#loginWall").style.display="none";
+  S.currentScreen="dashboard"
+  restoreNav();
+  renderAll();
+})
+
+}
+
+function authError(e){
+  const map={
+    "auth/invalid-email":"Usuario inválido.","auth/user-not-found":"No existe esa cuenta.","auth/wrong-password":"Contraseña incorrecta.","auth/email-already-in-use":"Ese usuario ya existe.","auth/weak-password":"La contraseña debe tener al menos 6 caracteres.","auth/network-request-failed":"No hay conexión con Firebase."
+  };
+
+  $("authError").textContent = map[e.code] || "No se pudo completar la autenticación";
+}
