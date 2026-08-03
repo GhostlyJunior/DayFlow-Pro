@@ -134,9 +134,12 @@ const clone = v => JSON.parse(JSON.stringify(v));
 const t = k => (LANGS[S.lang] || LANGS.es)[K] || k;
 
 function loadScript(src){
-  return new Promise((resolve,reject))=>{
+    return new Promise((resolve,reject))=>{
     const s=document.createElement("script");
-    const timer=setTimeout(()=>reject(new Error(src))};
+    const timer=setTimeout(()=>reject(new Error(src)),12000);
+    s.src=src;
+    s.onload=()=>{clearTimeout(timer);resolve()};
+    s.onerror=()=>{clearTimeout(timer);reject(new Error(src))};
     document.head.appendChild(s);
   });
 }
@@ -200,3 +203,132 @@ function authError(e){
 
   $("authError").textContent = map[e.code] || "No se pudo completar la autenticación";
 }
+
+function emailFromUser(){
+
+  return ($("#loginUser").value.trim().toLowerCase().replace(/\s+/g,"") ||"usuario") + "@dayflow.app";
+}
+
+async function login (mode){
+  try{
+    if(!auth){
+      $("#authError").textContent="Firebase aún está cargando. Espera un momento.";
+      return;
+}
+
+$("#authError").textContent="";
+
+const email=emailFromUser();
+const pass=$("#loginPass").value;
+
+if(mode==="reg") await auth.createUserWithEmailAndPassword(email,pass);
+else await auth.signInWithEmailAndPassword(email,pass);
+  }catch(e){
+    authError(e);
+  }
+}
+
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(saveNow,1500);
+}
+
+async function saveNow(){
+  if(userRef) await userRef.set(S,{merge:true});
+}
+
+const SOUND_MAP={
+  complete:"sounds/complete.wav",
+  timer:"sounds/timer.wav",
+  succes:"sounds/succes.wav"
+};
+
+function beep(type="complete"){
+  try{
+    const audio=new Audio(SOUND_MAP[type] || SOUND_MAP.complete);
+    audio.volume=.38;
+    audio.play().catch(()=>{});
+  }catch(e){}
+}
+
+function toast(msg){
+  const n=document.createElement("div");
+  n.textContent=msg;
+  $("#toast").appendChild(n);
+  setTimeout(()=>n.remove(),3600);
+}
+
+function showModal(title,text,nextScreen=null,buttonText=null){
+  modalNextScreen=nextScreen;
+  $("modalTitle").TextContent=title;
+  $("#modalText").textContent=text;
+  $("#modalOk").textContent=buttonText || (nextScreen?t("next"):t("continue"));
+  $("#modal").classList.add("show");
+}
+
+function greetingKey(){
+  const h=new Date().getHours();
+return h<12 ?"greeting_morning" :h<19?"greeting_afternoon":"greeting_evening";
+}
+
+function restoreNav(){
+  showScreen("dashboard",true);
+  document.body.classList.toggle("open",localStorage.getltem("sideOpen")==="1");
+}
+
+function showScreen(id,silent=false){
+  const locked=$('.nav-item[data-screen="${id}"].locked');
+  if(locked && !silent) return toast(t("locked_msg"));
+
+  currentScreen=id;
+  S.currentScreen=id;
+
+  $(".screen.active")?.classList.remove("active");
+  $("#"+id)?.classList.add("active");
+
+  $$(".nav-item,.profile-entry").forEach(b=>b.classList.toggle("active",b.dataset.screen===id));
+
+  if(!silent) save();
+}
+
+function isUnlocked(step){
+  if(!S.dayStarted) return false;
+
+  const idx=FLOW.indexOf(step);
+  if(idx<0) return true;
+
+  return idx===0 || S.completed[FLOW[idx-1]];
+}
+
+function renderAll(){
+  applyTheme();
+  renderI18n();
+  renderDashboard();
+  renderNav();
+  renderSchedule();
+  renderTimers();
+  renderTasks();
+  renderEvidence();
+  renderStore();
+  renderModules();
+  renderReminders();
+  renderConfig();
+}
+
+function applyTheme(){
+  document.documentElement.dataset.theme=localStorage.getltem("theme")||"light";
+}
+
+function renderI18n(){
+  $$("[data-i18n]").forEach(el=>el.textContent=t(el.dataset.i18));
+  $$("[data-ph").forEach(el=>el.placeholder=t(el.dataset.ph));
+
+  $("#modType option[value='timer']").textContent=t("timer_notes");
+  $("#modType option[value='notes']").textContent=t("notes");
+  $("#modType option[value='checklist']").textContent=t("checklist");
+  $("#modType option[value='study']").textContent=t("study_block");
+  $("#modType option[value='reading']").textContent=t("reading_block");
+  $("#modType option[value='workout']").textContent=t("workout_block");
+  $("#modType option[value='habit']").textContent=t("habit_block");
+$("#modType option[value='project']").textContent=t("project_block");
+$("#modType option[value='journal']").textContent=t("journal_block");
