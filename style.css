@@ -72,7 +72,7 @@ html {
 body {
     min-height: 100vh;
     margin: 0;
-    overflow-xº: hidden;
+    overflow-x: hidden;
     background: var(--bg);
     color: var(--ink);
     font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -231,54 +231,180 @@ login-wall {
     padding: 28px;
     overflow: auto;
     background: #171411;
-    }
-    .login-wall::before,
-    .login-wall::after {
-        position: fixed;
-        content: "";
-        pointer-events: none;
-        }
-        .login-wall::before {
-            inset: 0;
-            opacity: 0.22;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.055) 1px transparent 1px
-            );
-            background-size: 100% 48px;
-            }
-            .login-wall::after {
-                display: none;
-                }
+}
 
-                .login-box {
-                    position: relative;
-                    z-index: 1;
-                    display: grid;
-                    grid-template-columns: minmax(260px,0.9fr) minmax(320px, 1.1fr);
-                    align-items: center;
-                    gap: clamp(42px, 8vw, 112px);
-                    width: min(920px, 100%);
-                    padding: clamp(22px, 4vw, 50px) 0;
-                    border: 0;
-                    border-radius: 0;
-                    background: transparent;
-                    box-shadow: none;
-                    }
-                    .login-box > div:first-child {
-                  color: #f8f2eb;
-                }
-                .login-box h1 {
-                 margin: 7px 0 16px;
-                 color: #fffaf4;
-                }
-                .login-box >div:first-child .muted {
-                max-width: 34rem;
-                color: rgba(255, 248, 240, 0.66);
-                }
-                .login-box .card {
-                    border-color: rgba(255,255, 255, 0.12);
-                    background: var(--paper);
-                    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
-                    }
-                    :root[data-theme="dark"] .login-box .card {
-                        background: rgba(27, 24, 21, 0.95);
-                    }
+.login-wall::before,
+.login-wall::after {
+    position: fixed;
+    content: "";
+    pointer-events: none;
+}
+
+.login-wall::before {
+    inset: 0;
+    opacity: 0.22;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.055) 1px transparent 1px);
+    background-size: 100% 48px;
+}
+
+.login-wall::after {
+    display: none;
+}
+
+.login-box {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr);
+    align-items: center;
+    gap: clamp(42px, 8vw, 112px);
+    width: min(920px, 100%);
+    padding: clamp(22px, 4vw, 50px) 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.login-box>div:first-child {
+    color: #f8f2eb;
+}
+
+.login-box h1 {
+    margin: 7px 0 16px;
+    color: #fffaf4;
+}
+
+.login-box>div:first-child .muted {
+    max-width: 34rem;
+    color: rgba(255, 248, 240, 0.66);
+}
+
+.login-box .card {
+    border-color: rgba(255, 255, 255, 0.12);
+    background: var(--paper);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="dark"] .login-box .card {
+    background: rgba(27, 24, 21, 0.95);
+}
+
+/*app shell and navegation*/
+.app {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    z-index: 100;
+    inset: 0 auto 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: var(--sidebar-w);
+    padding: 22px 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: var(--sidebar-text);
+    background: var(--sidebar);
+    box-shadow: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    border: 0;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.profile-entry,
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 0;
+    color: rgba(255, 248, 240, 0.68);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.profile-entry:hover,
+.nav-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.profile-entry:active,
+.nav-item:active {
+    transform: scale(0.98);
+}
+
+.profile-entry {
+    gap: 12px;
+    min-height: 62px;
+    margin-bottom: 4px;
+    padding: 9px 10px;
+    border-radius: 6px;
+}
+
+.profile-entry::after {
+    position: absolute;
+    right: 12px;
+    content: "↗";
+    color: rgba(255, 255, 255, 0.34);
+    font-size: 0.8rem;
+}
+
+.side-avatar,
+.avatar {
+    flex: 0 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--paper2);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+.side-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.profile-name {
+    max-width: 128%;
+    overflow: hidden;
+    color: #fff8f1;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nav-item {
+    gap: 13px;
+    min-height: 44px;
+    padding: 10px 13px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.nav-item i,
+.nav-emoji {
+    display: grid;
+    flex: 0 0 20px;
+    width: 20px;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.98rem;
+    transition: color 180ms ease, transform 180ms ease;
+}
