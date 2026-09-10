@@ -522,6 +522,90 @@ main {
     to {
         opacity: 1;
         transform: translateY(0);
-         } 
-                   }
-  /*cards an layout*/
+    }
+}
+
+/*cards an layout*/
+.card .panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    box-shadow: none;
+}
+
+.card {
+    padding: clamp(17px, 2vw, 24px);
+    transition: border-color 180ms ease, background 180ms ease;
+}
+
+.card:hover {
+    border-color: var(--line-strong);
+    background: color-mix(in srgb, var(--paper) 94%, var(--paper2));
+}
+
+.panel {
+    padding: clamp(24px, 4vx, 48px);
+}
+
+.dash-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.7fr);
+    align-items: start;
+    gap: clamp(18px, 3vw, 34px);
+}
+.stats {
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+
+.stat {
+    position: relative;
+    min-height: 116px;
+    overflow: hidden;
+    border-top: 3px solid var(--mocha);
+    } 
+    .stat::after {
+        display: none;
+        } 
+        .stat strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--mocha-dark);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(1.9rem, 3vw, 2.55rem);
+        line-height: 1;
+         }
+         .stat > span {
+            color: var(--ink-soft);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08rem;
+            text-transform: uppercase;
+            }
+            .stat-note {
+                position: relative;
+                z-index: 1;
+                margin-top: 8px;
+                color: var(--muted);
+                font-size: 0.68rem;
+                line-height: 1.35;
+                }
+                .notice {
+                    position: relative;
+                    overflow: hidden;
+                    border-left: 4px solid var(--gold);
+                    background: var(--paper);
+                    }
+                    notice::after {
+                        display: none;
+                        }
+                        .config-grid {
+                            grid-template-columns: repeat(2, minmax(0,1fr));
+                            }
+                          .store-grid {
+                            grid-template-columns: repeat(3, minmax(0, 1fr));
+                              }
+                             .modules-grid
+                             .redeemd.grid {
+                                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                                  }
+                                  
+
