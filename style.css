@@ -607,5 +607,1105 @@ main {
                              .redeemd.grid {
                                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                                   }
-                                  
+                                                                  /* Cards and layout */
+                                
+                                                                  .card,
+                                                                  .panel {
+                                                                      border: 1px solid var(--line);
+                                                                      border-radius: var(--radius);
+                                                                      background: var(--paper);
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .card {
+                                                                      padding: clamp(17px, 2vw, 24px);
+                                                                      transition: border-color 180ms ease, background 180ms ease;
+                                                                  }
+                                
+                                                                  .card:hover {
+                                                                      border-color: var(--line-strong);
+                                                                      background: color-mix(in srgb, var(--paper) 94%, var(--paper2));
+                                                                  }
+                                
+                                                                  .panel {
+                                                                      padding: clamp(24px, 4vw, 48px);
+                                                                  }
+                                
+                                                                  .dash-grid {
+                                                                      grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.7fr);
+                                                                      align-items: start;
+                                                                      gap: clamp(18px, 3vw, 34px);
+                                                                  }
+                                
+                                                                  .stats {
+                                                                      grid-template-columns: repeat(3, minmax(0, 1fr));
+                                                                  }
+                                
+                                                                  .stat {
+                                                                      position: relative;
+                                                                      min-height: 116px;
+                                                                      overflow: hidden;
+                                                                      border-top: 3px solid var(--mocha);
+                                                                  }
+                                
+                                                                  .stat::after {
+                                                                      display: none;
+                                                                  }
+                                
+                                                                  .stat strong {
+                                                                      display: block;
+                                                                      margin-bottom: 3px;
+                                                                      color: var(--mocha-dark);
+                                                                      font-family: "Cormorant Garamond", Georgia, serif;
+                                                                      font-size: clamp(1.9rem, 3vw, 2.55rem);
+                                                                      line-height: 1;
+                                                                  }
+                                
+                                                                  .stat>span {
+                                                                      color: var(--ink-soft);
+                                                                      font-size: 0.76rem;
+                                                                      font-weight: 700;
+                                                                      letter-spacing: 0.08em;
+                                                                      text-transform: uppercase;
+                                                                  }
+                                
+                                                                  .stat-note {
+                                                                      position: relative;
+                                                                      z-index: 1;
+                                                                      margin-top: 8px;
+                                                                      color: var(--muted);
+                                                                      font-size: 0.68rem;
+                                                                      line-height: 1.35;
+                                                                  }
+                                
+                                                                  .notice {
+                                                                      position: relative;
+                                                                      overflow: hidden;
+                                                                      border-left: 4px solid var(--gold);
+                                                                      background: var(--paper);
+                                                                  }
+                                
+                                                                  .notice::after {
+                                                                      display: none;
+                                                                  }
+                                
+                                                                  .config-grid {
+                                                                      grid-template-columns: repeat(2, minmax(0, 1fr));
+                                                                  }
+                                
+                                                                  .store-grid {
+                                                                      grid-template-columns: repeat(3, minmax(0, 1fr));
+                                                                  }
+                                
+                                                                  .modules-grid,
+                                                                  .redeemed-grid {
+                                                                      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                                                                  }
+                                
+                                                                  /* Controls */
+                                
+                                                                  .btn,
+                                                                  .icon-btn,
+                                                                  .pill {
+                                                                      display: inline-flex;
+                                                                      align-items: center;
+                                                                      justify-content: center;
+                                                                      border: 1px solid transparent;
+                                                                      cursor: pointer;
+                                                                      font-weight: 700;
+                                                                      transition: transform 180ms var(--ease), box-shadow 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+                                                                  }
+                                
+                                                                  .btn {
+                                                                      gap: 9px;
+                                                                      min-height: 43px;
+                                                                      padding: 10px 17px;
+                                                                      border-radius: 6px;
+                                                                      color: #fffaf6;
+                                                                      background: var(--ink);
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .btn:hover:not(:disabled),
+                                                                  .icon-btn:hover:not(:disabled),
+                                                                  .pill:hover:not(:disabled) {
+                                                                      transform: translateY(-1px);
+                                                                  }
+                                
+                                                                  .btn:hover:not(:disabled) {
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .btn:active:not(:disabled),
+                                                                  .icon-btn:active:not(:disabled),
+                                                                  .pill:active:not(:disabled) {
+                                                                      transform: translateY(0) scale(0.98);
+                                                                  }
+                                
+                                                                  .btn.alt {
+                                                                      border-color: var(--line-strong);
+                                                                      color: var(--ink);
+                                                                      background: var(--paper2);
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .btn.ghost {
+                                                                      border-color: var(--line);
+                                                                      color: var(--muted);
+                                                                      background: transparent;
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .btn.gold {
+                                                                      color: #21170e;
+                                                                      background: var(--gold);
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .btn.green {
+                                                                      color: #fff;
+                                                                      background: var(--green);
+                                                                  }
+                                
+                                                                  .btn:disabled,
+                                                                  .icon-btn:disabled,
+                                                                  .pill:disabled {
+                                                                      opacity: 0.42;
+                                                                      cursor: not-allowed;
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .icon-btn {
+                                                                      flex: 0 0 auto;
+                                                                      width: 38px;
+                                                                      height: 38px;
+                                                                      padding: 0;
+                                                                      border-color: var(--line);
+                                                                      border-radius: 6px;
+                                                                      color: var(--ink-soft);
+                                                                      background: var(--paper2);
+                                                                  }
+                                
+                                                                  .pillbar,
+                                                                  .legal-tabs {
+                                                                      display: flex;
+                                                                      flex-wrap: wrap;
+                                                                      gap: 8px;
+                                                                  }
+                                
+                                                                  .pillbar {
+                                                                      padding: 5px;
+                                                                      border-radius: 14px;
+                                                                      background: var(--paper2);
+                                                                  }
+                                
+                                                                  .pill {
+                                                                      min-height: 36px;
+                                                                      padding: 8px 14px;
+                                                                      border-radius: 6px;
+                                                                      color: var(--muted);
+                                                                      background: transparent;
+                                                                  }
+                                
+                                                                  .pill.active {
+                                                                      color: #fff;
+                                                                      background: var(--mocha);
+                                                                      box-shadow: none;
+                                                                  }
+                                
+                                                                  .badge {
+                                                                      display: inline-flex;
+                                                                      align-items: center;
+                                                                      gap: 7px;
+                                                                      width: max-content;
+                                                                      max-width: 100%;
+                                                                      padding: 6px 10px;
+                                                                      border: 1px solid var(--line);
+                                                                      border-radius: 5px;
+                                                                      color: var(--mocha-dark);
+                                                                      background: var(--paper2);
+                                                                      font-size: 0.72rem;
+                                                                      font-weight: 700;
+                                                                      line-height: 1.2;
+                                                                  }
+                                
+                                                                  .field {
+                                                                      display: grid;
+                                                                      gap: 7px;
+                                                                  }
+                                
+                                                                  .field label {
+                                                                      color: var(--ink-soft);
+                                                                      font-size: 0.75rem;
+                                                                      font-weight: 700;
+                                                                      letter-spacing: 0.04em;
+                                                                  }
+                                
+                                                                  input,
+                                                                  select,
+                                                                  textarea {
+                                                                      width: 100%;
+                                                                      min-width: 0;
+                                                                      border: 1px solid var(--line-strong);
+                                                                      border-radius: 6px;
+                                                                      outline: none;
+                                                                      color: var(--ink);
+                                                                      background: var(--paper);
+                                                                      transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+                                                                  }
+                                
+                                                                  input,
+                                                                  select {
+                                                                      min-height: 44px;
+                                                                      padding: 9px 12px;
+                                                                  }
+                                
+                                                                  textarea {
+                                                                      min-height: 128px;
+                                                                      padding: 12px 14px;
+                                                                      line-height: 1.6;
+                                                                      resize: vertical;
+                                                                  }
+                                
+                                                                  textarea.editor {
+                                                                      min-height: 290px;
+                                                                  }
+                                
+                                                                  input::placeholder,
+                                                                  textarea::placeholder {
+                                                                      color: color-mix(in srgb, var(--muted) 65%, transparent);
+                                                                  }
+                                
+                                                                  input:focus,
+                                                                  select:focus,
+                                                                  textarea:focus {
+                                                                      border-color: var(--mocha);
+                                                                      box-shadow: 0 0 0 4px color-mix(in srgb, var(--mocha) 13%, transparent);
+                                                                  }
+                                
+                                                                  input[type="checkbox"] {
+                                                                      width: 19px;
+                                                                      min-width: 19px;
+                                                                      height: 19px;
+                                                                      min-height: 19px;
+                                                                      padding: 0;
+                                                                      border-radius: 3px;
+                                                                      accent-color: var(--mocha);
+                                                                  }
+                                
+                                                                  .toggle,
+                                                                  .check-item {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                      gap: 11px;
+                                                                      cursor: pointer;
+                                                                  }
+                                
+                                                                  /* Dashboard goals and charts */
+                                
+                                                                  .goals {
+                                                                      display: grid;
+                                                                      gap: 9px;
+                                                                  }
+                                
+                                                                  .goal,
+                                                                  .task,
+                                                                  .check-item {
+                                                                      border: 1px solid var(--line);
+                                                                      border-radius: var(--radius-sm);
+                                                                      background: transparent;
+                                                                  }
+                                
+                                                                  .goal,
+                                                                  .task {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                      gap: 11px;
+                                                                      min-height: 50px;
+                                                                      padding: 7px 9px 7px 13px;
+                                                                  }
+                                
+                                                                  .goal>span,
+                                                                  .task>span {
+                                                                      min-width: 0;
+                                                                      flex: 1;
+                                                                      overflow-wrap: anywhere;
+                                                                  }
+                                
+                                                                  .goal:has(input:checked)>span,
+                                                                  .task:has(input:checked)>span,
+                                                                  .check-item:has(input:checked) {
+                                                                      color: var(--muted);
+                                                                      text-decoration: line-through;
+                                                                  }
+                                
+                                                                  .goal .icon-btn,
+                                                                  .task .icon-btn {
+                                                                      border-color: transparent;
+                                                                      background: transparent;
+                                                                  }
+                                
+                                                                  .bars {
+                                                                      display: flex;
+                                                                      align-items: flex-end;
+                                                                      gap: clamp(7px, 1.4vw, 13px);
+                                                                      height: 190px;
+                                                                      padding: 26px 8px 25px;
+                                                                      border-bottom: 1px solid var(--line-strong);
+                                                                  }
+                                
+                                                                  .bar {
+                                                                      position: relative;
+                                                                      flex: 1;
+                                                                      min-width: 16px;
+                                                                      max-width: 54px;
+                                                                      min-height: 8px;
+                                                                      padding: 0;
+                                                                      border: 0;
+                                                                      border-radius: 3px 3px 0 0;
+                                                                      color: var(--muted);
+                                                                      background: var(--mocha);
+                                                                      cursor: pointer;
+                                                                      box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
+                                                                      transition: filter 180ms ease, transform 180ms var(--ease);
+                                                                  }
+                                
+                                                                  .bar:hover,
+                                                                  .bar.show {
+                                                                      filter: brightness(1.13);
+                                                                      transform: scaleX(1.06);
+                                                                  }
+                                
+                                                                  .bar span {
+                                                                      position: absolute;
+                                                                      top: calc(100% + 8px);
+                                                                      left: 50%;
+                                                                      transform: translateX(-50%);
+                                                                      font-size: 0.7rem;
+                                                                      font-weight: 700;
+                                                                  }
+                                
+                                                                  .bar::before {
+                                                                      position: absolute;
+                                                                      z-index: 2;
+                                                                      left: 50%;
+                                                                      bottom: calc(100% + 8px);
+                                                                      padding: 5px 8px;
+                                                                      border-radius: 8px;
+                                                                      color: #fff;
+                                                                      background: var(--ink);
+                                                                      content: attr(data-tip);
+                                                                      font-size: 0.67rem;
+                                                                      font-weight: 700;
+                                                                      opacity: 0;
+                                                                      pointer-events: none;
+                                                                      transform: translate(-50%, 5px);
+                                                                      transition: opacity 160ms ease, transform 160ms ease;
+                                                                      white-space: nowrap;
+                                                                  }
+                                
+                                                                  .bar:hover::before,
+                                                                  .bar.show::before {
+                                                                      opacity: 1;
+                                                                      transform: translate(-50%, 0);
+                                                                  }
+                                
+                                                                  /* Timers */
+                                
+                                                                  .timer-wrap {
+                                                                      display: grid;
+                                                                      place-items: center;
+                                                                      gap: 26px;
+                                                                      margin-top: 18px;
+                                                                  }
+                                
+                                                                  .timer {
+                                                                      position: relative;
+                                                                      display: grid;
+                                                                      width: min(270px, 72vw);
+                                                                      height: min(270px, 72vw);
+                                                                      place-items: center;
+                                                                  }
+                                
+                                                                  .timer svg {
+                                                                      position: absolute;
+                                                                      inset: 0;
+                                                                      width: 100%;
+                                                                      height: 100%;
+                                                                      transform: rotate(-90deg);
+                                                                      filter: drop-shadow(0 8px 14px color-mix(in srgb, var(--gold) 17%, transparent));
+                                                                  }
+                                
+                                                                  .timer>div {
+                                                                      position: relative;
+                                                                      text-align: center;
+                                                                  }
+                                
+                                                                  .timer-time {
+                                                                      color: var(--ink);
+                                                                      font-family: "Cormorant Garamond", Georgia, serif;
+                                                                      font-size: clamp(2.8rem, 8vw, 4.5rem);
+                                                                      font-weight: 600;
+                                                                      letter-spacing: -0.045em;
+                                                                      line-height: 1;
+                                                                  }
+                                
+                                                                  .timer-mode {
+                                                                      margin-top: 5px;
+                                                                      color: var(--muted);
+                                                                      font-size: 0.69rem;
+                                                                      font-weight: 700;
+                                                                      letter-spacing: 0.14em;
+                                                                      text-transform: uppercase;
+                                                                  }
+                                
+                                                                  .dots {
+                                                                      display: flex;
+                                                                      justify-content: center;
+                                                                      gap: 7px;
+                                                                  }
+                                
+                                                                  .dot {
+                                                                      width: 8px;
+                                                                      height: 8px;
+                                                                      border-radius: 50%;
+                                                                      background: var(--paper3);
+                                                                  }
+                                
+                                                                  .dot.on {
+                                                                      background: var(--gold);
+                                                                      box-shadow: 0 0 0 4px var(--gold-soft);
+                                                                  }
+                                
+                                                                  /* Tables, uploads, rewards and modules */
+                                
+                                                                  #scheduleView {
+                                                                      overflow-x: auto;
+                                                                  }
+                                
+                                                                  .schedule {
+                                                                      width: 100%;
+                                                                      border-collapse: collapse;
+                                                                  }
+                                
+                                                                  .schedule th,
+                                                                  .schedule td {
+                                                                      padding: 15px 18px;
+                                                                      border-bottom: 1px solid var(--line);
+                                                                      text-align: left;
+                                                                  }
+                                
+                                                                  .schedule th {
+                                                                      color: var(--muted);
+                                                                      font-size: 0.69rem;
+                                                                      letter-spacing: 0.12em;
+                                                                      text-transform: uppercase;
+                                                                  }
+                                
+                                                                  .schedule tr:last-child td {
+                                                                      border-bottom: 0;
+                                                                  }
+                                
+                                                                  .schedule tr.now td {
+                                                                      color: var(--mocha-dark);
+                                                                      background: var(--gold-soft);
+                                                                      font-weight: 700;
+                                                                  }
+                                
+                                                                  .schedule tr.now td:first-child {
+                                                                      border-radius: 10px 0 0 10px;
+                                                                  }
+                                
+                                                                  .schedule tr.now td:last-child {
+                                                                      border-radius: 0 10px 10px 0;
+                                                                  }
+                                
+                                                                  .drop {
+                                                                      display: grid;
+                                                                      min-height: 230px;
+                                                                      place-items: center;
+                                                                      padding: 30px;
+                                                                      border: 2px dashed var(--line-strong);
+                                                                      border-radius: 8px;
+                                                                      color: var(--muted);
+                                                                      background: color-mix(in srgb, var(--paper) 62%, transparent);
+                                                                      cursor: pointer;
+                                                                      text-align: center;
+                                                                      transition: border-color 180ms ease, color 180ms ease, background 180ms ease, transform 180ms var(--ease);
+                                                                  }
+                                
+                                                                  .drop i {
+                                                                      margin: 0 auto 12px;
+                                                                      color: var(--mocha);
+                                                                  }
+                                
+                                                                  .drop:hover,
+                                                                  .drop.drag {
+                                                                      border-color: var(--mocha);
+                                                                      color: var(--ink);
+                                                                      background: var(--paper2);
+                                                                      transform: translateY(-2px);
+                                                                  }
+                                
+                                                                  .thumb-grid {
+                                                                      display: grid;
+                                                                      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                                                                      gap: 13px;
+                                                                  }
+                                
+                                                                  .thumb-grid img {
+                                                                      width: 100%;
+                                                                      aspect-ratio: 1;
+                                                                      border: 1px solid var(--line);
+                                                                      border-radius: 7px;
+                                                                      object-fit: cover;
+                                                                      box-shadow: var(--shadow-sm);
+                                                                  }
+                                
+                                                                  .thumb {
+                                                                      width: 38px;
+                                                                      height: 38px;
+                                                                      flex: 0 0 38px;
+                                                                      border-radius: 5px;
+                                                                      object-fit: cover;
+                                                                  }
+                                
+                                                                  .reward {
+                                                                      position: relative;
+                                                                      display: flex;
+                                                                      min-height: 200px;
+                                                                      flex-direction: column;
+                                                                      overflow: hidden;
+                                                                  }
+                                
+                                                                  .reward::after {
+                                                                      display: none;
+                                                                  }
+                                
+                                                                  .reward>* {
+                                                                      position: relative;
+                                                                      z-index: 1;
+                                                                  }
+                                
+                                                                  .reward>.btn {
+                                                                      margin-top: auto;
+                                                                  }
+                                
+                                                                  .reward .fa-2x,
+                                                                  .redeemed-grid .fa-lg {
+                                                                      color: var(--mocha);
+                                                                  }
+                                
+                                                                  .reward.disabled {
+                                                                      opacity: 0.56;
+                                                                      filter: saturate(0.35);
+                                                                  }
+                                
+                                                                  .module-card {
+                                                                      display: grid;
+                                                                      align-content: start;
+                                                                      gap: 18px;
+                                                                  }
+                                
+                                                                  .module-head {
+                                                                      display: flex;
+                                                                      align-items: flex-start;
+                                                                      justify-content: space-between;
+                                                                      gap: 16px;
+                                                                  }
+                                
+                                                                  .emoji {
+                                                                      display: grid;
+                                                                      width: 48px;
+                                                                      height: 48px;
+                                                                      place-items: center;
+                                                                      margin-bottom: 12px;
+                                                                      border-radius: 15px;
+                                                                      background: var(--gold-soft);
+                                                                      font-size: 1.5rem;
+                                                                      box-shadow: inset 0 0 0 1px var(--line);
+                                                                  }
+                                
+                                                                  .check-item {
+                                                                      min-height: 47px;
+                                                                      padding: 10px 13px;
+                                                                  }
+                                
+                                                                  .reminder.fired {
+                                                                      border-color: color-mix(in srgb, var(--green) 45%, var(--line));
+                                                                      background: var(--green-soft);
+                                                                  }
+                                
+                                                                  .avatar {
+                                                                      border: 3px solid var(--paper);
+                                                                      box-shadow: 0 0 0 1px var(--line-strong), var(--shadow-sm);
+                                                                  }
+                                
+                                                                  /* Legal and footer */
+                                
+                                                                  .legal-hero {
+                                                                      display: flex;
+                                                                      align-items: flex-end;
+                                                                      justify-content: space-between;
+                                                                      gap: 30px;
+                                                                      margin-bottom: 24px;
+                                                                      padding-bottom: 24px;
+                                                                      border-bottom: 1px solid var(--line);
+                                                                  }
+                                
+                                                                  .legal-hero h2 {
+                                                                      margin: 7px 0 9px;
+                                                                  }
+                                
+                                                                  .legal-intro {
+                                                                      margin-bottom: 18px;
+                                                                      border-left: 4px solid var(--gold);
+                                                                      font-size: 1.02rem;
+                                                                  }
+                                
+                                                                  .legal-grid {
+                                                                      display: grid;
+                                                                      grid-template-columns: repeat(2, minmax(0, 1fr));
+                                                                      gap: 16px;
+                                                                  }
+                                
+                                                                  .legal-card h3 {
+                                                                      margin-bottom: 10px;
+                                                                  }
+                                
+                                                                  .site-footer {
+                                                                      width: calc(100% + clamp(44px, 8vw, 132px));
+                                                                      margin: 0 calc(clamp(22px, 4vw, 66px) * -1);
+                                                                      padding: 52px clamp(22px, 4vw, 66px) 28px;
+                                                                      color: rgba(255, 248, 240, 0.64);
+                                                                      background: var(--sidebar);
+                                                                  }
+                                
+                                                                  .footer-main,
+                                                                  .footer-bottom {
+                                                                      width: min(1320px, 100%);
+                                                                      margin-inline: auto;
+                                                                  }
+                                
+                                                                  .footer-main {
+                                                                      display: grid;
+                                                                      grid-template-columns: minmax(220px, 0.8fr) minmax(420px, 1.2fr);
+                                                                      gap: clamp(38px, 7vw, 100px);
+                                                                      padding-bottom: 38px;
+                                                                  }
+                                
+                                                                  .footer-about p {
+                                                                      max-width: 390px;
+                                                                      margin: 16px 0 22px;
+                                                                  }
+                                
+                                                                  .footer-logo {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                      gap: 11px;
+                                                                      color: #fffaf4;
+                                                                      font-family: "Cormorant Garamond", Georgia, serif;
+                                                                      font-size: 1.5rem;
+                                                                      font-weight: 700;
+                                                                  }
+                                
+                                                                  .footer-mark {
+                                                                      display: block;
+                                                                      width: 17px;
+                                                                      height: 17px;
+                                                                      border: 4px solid var(--gold);
+                                                                      border-radius: 50%;
+                                                                      box-shadow: 0 0 0 4px rgba(185, 135, 79, 0.15);
+                                                                  }
+                                
+                                                                  .footer-socials {
+                                                                      display: flex;
+                                                                      flex-wrap: wrap;
+                                                                      gap: 10px;
+                                                                  }
+                                
+                                                                  .footer-socials a {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                      gap: 8px;
+                                                                      padding: 8px 11px;
+                                                                      border: 1px solid rgba(255, 255, 255, 0.11);
+                                                                      border-radius: 10px;
+                                                                      transition: background 180ms ease, color 180ms ease;
+                                                                  }
+                                
+                                                                  .footer-socials a:hover {
+                                                                      color: #fff;
+                                                                      background: rgba(255, 255, 255, 0.07);
+                                                                  }
+                                
+                                                                  .footer-links {
+                                                                      display: grid;
+                                                                      grid-template-columns: repeat(3, minmax(0, 1fr));
+                                                                      gap: 25px;
+                                                                  }
+                                
+                                                                  .footer-links>div {
+                                                                      display: grid;
+                                                                      align-content: start;
+                                                                      gap: 9px;
+                                                                  }
+                                
+                                                                  .footer-links h4 {
+                                                                      margin-bottom: 5px;
+                                                                      color: #fffaf4;
+                                                                  }
+                                
+                                                                  .footer-links a,
+                                                                  .footer-links button,
+                                                                  .footer-legal-short button {
+                                                                      width: max-content;
+                                                                      max-width: 100%;
+                                                                      padding: 0;
+                                                                      border: 0;
+                                                                      color: rgba(255, 248, 240, 0.57);
+                                                                      background: transparent;
+                                                                      cursor: pointer;
+                                                                      text-align: left;
+                                                                      transition: color 180ms ease, transform 180ms ease;
+                                                                  }
+                                
+                                                                  .footer-links a:hover,
+                                                                  .footer-links button:hover,
+                                                                  .footer-legal-short button:hover {
+                                                                      color: #fff;
+                                                                      transform: translateX(2px);
+                                                                  }
+                                
+                                                                  .footer-bottom {
+                                                                      display: flex;
+                                                                      align-items: center;
+                                                                      justify-content: space-between;
+                                                                      gap: 18px;
+                                                                      padding-top: 24px;
+                                                                      border-top: 1px solid rgba(255, 255, 255, 0.1);
+                                                                      font-size: 0.75rem;
+                                                                  }
+                                
+                                                                  .footer-legal-short {
+                                                                      display: flex;
+                                                                      gap: 14px;
+                                                                  }
+                                
+                                                                  /* Modal and notifications */
+                                
+                                                                  .modal {
+                                                                      position: fixed;
+                                                                      z-index: 800;
+                                                                      inset: 0;
+                                                                      display: grid;
+                                                                      place-items: center;
+                                                                      padding: 24px;
+                                                                      visibility: hidden;
+                                                                      background: rgba(12, 10, 9, 0.62);
+                                                                      opacity: 0;
+                                                                      backdrop-filter: blur(8px);
+                                                                      transition: visibility 220ms ease, opacity 220ms ease;
+                                                                  }
+                                
+                                                                  .modal.show {
+                                                                      visibility: visible;
+                                                                      opacity: 1;
+                                                                  }
+                                
+                                                                  .modal-card {
+                                                                      width: min(440px, 100%);
+                                                                      padding: clamp(25px, 5vw, 40px);
+                                                                      border: 1px solid var(--line);
+                                                                      border-radius: var(--radius-lg);
+                                                                      background: var(--paper);
+                                                                      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.32);
+                                                                      transform: translateY(14px) scale(0.97);
+                                                                      transition: transform 280ms var(--ease);
+                                                                  }
+                                
+                                                                  .modal.show .modal-card {
+                                                                      transform: translateY(0) scale(1);
+                                                                  }
+                                
+                                                                  .toast {
+                                                                      position: fixed;
+                                                                      z-index: 900;
+                                                                      right: 22px;
+                                                                      bottom: 22px;
+                                                                      display: grid;
+                                                                      width: min(360px, calc(100vw - 44px));
+                                                                      gap: 8px;
+                                                                      pointer-events: none;
+                                                                  }
+                                
+                                                                  .toast>div {
+                                                                      padding: 13px 16px;
+                                                                      border: 1px solid rgba(255, 255, 255, 0.13);
+                                                                      border-radius: 13px;
+                                                                      color: #fff;
+                                                                      background: #211b17;
+                                                                      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+                                                                      animation: toast-in 260ms var(--ease) both;
+                                                                  }
+                                
+                                                                  @keyframes toast-in {
+                                                                      from {
+                                                                          opacity: 0;
+                                                                          transform: translateY(10px) scale(0.97);
+                                                                      }
+                                                                  }
+                                
+                                                                  /* Tablet */
+                                
+                                                                  @media (max-width: 1060px) {
+                                                                      :root {
+                                                                          --sidebar-w: 82px;
+                                                                      }
+                                
+                                                                      .sidebar {
+                                                                          align-items: center;
+                                                                          padding-inline: 10px;
+                                                                      }
+                                
+                                                                      .sidebar .label,
+                                                                      .profile-name,
+                                                                      .profile-entry::after {
+                                                                          display: none;
+                                                                      }
+                                
+                                                                      .profile-entry,
+                                                                      .nav-item {
+                                                                          justify-content: center;
+                                                                          width: 48px;
+                                                                          padding-inline: 0;
+                                                                      }
+                                
+                                                                      .nav-item.locked::after,
+                                                                      .nav-item.done::after {
+                                                                          position: absolute;
+                                                                          right: 2px;
+                                                                          top: 4px;
+                                                                          margin: 0;
+                                                                          font-size: 0.65rem;
+                                                                      }
+                                
+                                                                      .rule {
+                                                                          width: 42px;
+                                                                      }
+                                
+                                                                      .dash-grid {
+                                                                          grid-template-columns: 1fr;
+                                                                      }
+                                
+                                                                      .store-grid {
+                                                                          grid-template-columns: repeat(2, minmax(0, 1fr));
+                                                                      }
+                                
+                                                                      .login-box {
+                                                                          gap: 38px;
+                                                                      }
+                                                                  }
+                                
+                                                                  /* Mobile navigation becomes a bottom dock */
+                                
+                                                                  @media (max-width: 720px) {
+                                                                      :root {
+                                                                          --sidebar-w: 0px;
+                                                                      }
+                                
+                                                                      body {
+                                                                          padding-bottom: 74px;
+                                                                      }
+                                
+                                                                      .app {
+                                                                          display: block;
+                                                                      }
+                                
+                                                                      .sidebar {
+                                                                          inset: auto 0 0;
+                                                                          display: flex;
+                                                                          width: 100%;
+                                                                          height: 70px;
+                                                                          flex-direction: row;
+                                                                          align-items: center;
+                                                                          gap: 5px;
+                                                                          padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+                                                                          overflow-x: auto;
+                                                                          overflow-y: hidden;
+                                                                          border-top: 1px solid rgba(255, 255, 255, 0.1);
+                                                                          background: rgba(18, 15, 13, 0.94);
+                                                                          box-shadow: 0 -12px 35px rgba(28, 19, 14, 0.18);
+                                                                          backdrop-filter: blur(18px);
+                                                                      }
+                                
+                                                                      .profile-entry,
+                                                                      .nav-item {
+                                                                          width: 48px;
+                                                                          min-width: 48px;
+                                                                          height: 48px;
+                                                                          min-height: 48px;
+                                                                      }
+                                
+                                                                      .profile-entry {
+                                                                          margin: 0;
+                                                                      }
+                                
+                                                                      .side-avatar {
+                                                                          width: 32px;
+                                                                          height: 32px;
+                                                                      }
+                                
+                                                                      .sidebar .rule,
+                                                                      .sidebar .progress-ring,
+                                                                      .sidebar #themeBtn {
+                                                                          display: none;
+                                                                      }
+                                
+                                                                      #moduleNav {
+                                                                          display: flex;
+                                                                          gap: 5px;
+                                                                      }
+                                
+                                                                      main {
+                                                                          padding: 17px 16px 0;
+                                                                      }
+                                
+                                                                      .topbar {
+                                                                          min-height: 34px;
+                                                                          margin-bottom: 16px;
+                                                                      }
+                                
+                                                                      .topbar .kicker {
+                                                                          max-width: 100%;
+                                                                          font-size: 0.61rem;
+                                                                      }
+                                
+                                                                      .screen {
+                                                                          min-height: calc(100svh - 116px);
+                                                                          padding-bottom: 46px;
+                                                                      }
+                                
+                                                                      .login-wall {
+                                                                          padding: 14px;
+                                                                      }
+                                
+                                                                      .login-box {
+                                                                          grid-template-columns: 1fr;
+                                                                          gap: 28px;
+                                                                          padding: 28px 20px;
+                                                                          border-radius: 0;
+                                                                      }
+                                
+                                                                      .login-box h1 {
+                                                                          font-size: clamp(2.75rem, 15vw, 4.2rem);
+                                                                      }
+                                
+                                                                      .login-box .row .btn {
+                                                                          flex: 1 1 145px;
+                                                                      }
+                                
+                                                                      .between {
+                                                                          align-items: flex-start;
+                                                                      }
+                                
+                                                                      .screen>.between {
+                                                                          flex-wrap: wrap;
+                                                                      }
+                                
+                                                                      .stats,
+                                                                      .store-grid,
+                                                                      .config-grid,
+                                                                      .legal-grid {
+                                                                          grid-template-columns: 1fr;
+                                                                      }
+                                
+                                                                      .stats {
+                                                                          gap: 11px;
+                                                                      }
+                                
+                                                                      .stat {
+                                                                          min-height: 105px;
+                                                                      }
+                                
+                                                                      .panel {
+                                                                          padding: 22px 16px;
+                                                                      }
+                                
+                                                                      .timer-wrap .row {
+                                                                          justify-content: center;
+                                                                      }
+                                
+                                                                      .schedule th,
+                                                                      .schedule td {
+                                                                          padding: 12px 10px;
+                                                                          white-space: nowrap;
+                                                                      }
+                                
+                                                                      .task {
+                                                                          flex-wrap: wrap;
+                                                                      }
+                                
+                                                                      .task>span {
+                                                                          flex-basis: calc(100% - 42px);
+                                                                      }
+                                
+                                                                      .legal-hero {
+                                                                          align-items: flex-start;
+                                                                          flex-direction: column;
+                                                                      }
+                                
+                                                                      .site-footer {
+                                                                          width: calc(100% + 32px);
+                                                                          margin-inline: -16px;
+                                                                          padding-inline: 20px;
+                                                                      }
+                                
+                                                                      .footer-main {
+                                                                          grid-template-columns: 1fr;
+                                                                      }
+                                
+                                                                      .footer-links {
+                                                                          grid-template-columns: repeat(2, minmax(0, 1fr));
+                                                                      }
+                                
+                                                                      .footer-bottom {
+                                                                          align-items: flex-start;
+                                                                          flex-direction: column;
+                                                                      }
+                                
+                                                                      .footer-legal-short {
+                                                                          flex-wrap: wrap;
+                                                                      }
+                                                                  }
+                                
+                                                                  @media (max-width: 430px) {
+                                                                      .row .btn {
+                                                                          flex-grow: 1;
+                                                                      }
+                                
+                                                                      .card {
+                                                                          padding: 18px;
+                                                                          border-radius: 8px;
+                                                                      }
+                                
+                                                                      .footer-links {
+                                                                          grid-template-columns: 1fr;
+                                                                      }
+                                                                  }
+                                
+                                                                  @media (prefers-reduced-motion: reduce) {
+                                                                      html {
+                                                                          scroll-behavior: auto;
+                                                                      }
+                                
+                                                                      *,
+                                                                      *::before,
+                                                                      *::after {
+                                                                          animation-duration: 0.01ms !important;
+                                                                          animation-iteration-count: 1 !important;
+                                                                          scroll-behavior: auto !important;
+                                                                          transition-duration: 0.01ms !important;
+                                                                      }
+                                                                  }
 
