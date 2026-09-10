@@ -221,7 +221,7 @@ h4 {
 }
 
 /*logiN:*/
-login-wall {
+.login-wall {
     position: fixed;
     z-index: 1000;
     inset: 0;
@@ -295,6 +295,10 @@ login-wall {
     display: grid;
     grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
     min-height: 100vh;
+}
+
+.app[hidden] {
+    display: none;
 }
 
 .sidebar {
@@ -447,7 +451,7 @@ login-wall {
     gap: 4px;
 }
 
-progress-ring {
+.progress-ring {
     position: relative;
     display: grid;
     width: 54px;
@@ -1708,4 +1712,3 @@ main {
                                                                           transition-duration: 0.01ms !important;
                                                                       }
                                                                   }
-

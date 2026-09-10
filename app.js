@@ -210,12 +210,17 @@ const firebaseConfig = {
       $("#loginBtn").disabled = $("#regBtn").disabled = false;
       auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       auth.onAuthStateChanged(async user=>{
-        if(!user){$("#loginWall").style.display="grid";return}
+        if(!user){
+          $(".app").hidden=true;
+          $("#loginWall").style.display="grid";
+          return;
+        }
         uid=user.uid;userRef=db.collection("users").doc(uid);
         const snap=await userRef.get();
         S={...clone(DEF),...(snap.exists?snap.data():{})};
         await saveNow();
         $("#loginWall").style.display="none";
+        $(".app").hidden=false;
         S.currentScreen="dashboard";
         restoreNav();
         renderAll();
