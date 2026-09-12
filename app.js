@@ -457,7 +457,22 @@ const firebaseConfig = {
     }
     function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 
+    const SIDEBAR_KEY="dayflowSidebarCollapsed";
+    function setSidebarCollapsed(collapsed){
+      const shell=$(".app"),button=$("#sidebarToggle");
+      shell.classList.toggle("sidebar-collapsed",collapsed);
+      button.setAttribute("aria-expanded",String(!collapsed));
+      button.title=collapsed?"Mostrar menú":"Ocultar menú";
+      button.querySelector('[aria-hidden="true"]').textContent=collapsed?"›":"‹";
+    }
+    setSidebarCollapsed(localStorage.getItem(SIDEBAR_KEY)==="true");
+
     document.addEventListener("click",e=>{
+      if(e.target.closest("#sidebarToggle")){
+        const collapsed=!$(".app").classList.contains("sidebar-collapsed");
+        setSidebarCollapsed(collapsed);
+        localStorage.setItem(SIDEBAR_KEY,String(collapsed));
+      }
       const nav=e.target.closest(".nav-item[data-screen],.profile-entry[data-screen]");if(nav) showScreen(nav.dataset.screen);
       const footScreen=e.target.closest("[data-footer-screen]");if(footScreen) showScreen(footScreen.dataset.footerScreen);
       const legal=e.target.closest("[data-legal]");if(legal){S.legalType=legal.dataset.legal;renderLegal(S.legalType);showScreen("legal",true);save()}

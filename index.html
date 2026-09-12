@@ -43,7 +43,7 @@
             </div>
 
             <div class="app" hidden>
-                <aside class="sidebar">
+                <aside id="sidebar" class="sidebar">
                     <button class="profile-entry" data-screen="stats" title="Estadisticas semanales">
                         <img id="sideAvatar" class="side-avatar" alt="Avatar">
                         <span id="sideName" class="profile-name">DayFlow</span>
@@ -107,6 +107,18 @@
                         <span class="label" data-i18n="theme">Tema</span>
                     </button>
                 </aside>
+
+                <button
+                    id="sidebarToggle"
+                    class="sidebar-toggle"
+                    type="button"
+                    aria-controls="sidebar"
+                    aria-expanded="true"
+                    title="Ocultar menú"
+                >
+                    <span aria-hidden="true">‹</span>
+                    <span class="sr-only">Ocultar o mostrar menú</span>
+                </button>
 
                 <main>
                     <div class="topbar">
