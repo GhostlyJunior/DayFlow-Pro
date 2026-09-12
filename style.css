@@ -20,6 +20,7 @@
     --sidebar: #171411;
     --sidebar-2: #241d19;
     --sidebar-text: #f8f2eb;
+    --button-primary: var(--ink);
     --shadow-sm: 0 2px 8px rgba(49, 34, 24, 0.06);
     --shadow: 0 10px 32px rgba(49, 34, 24, 0.12);
     --shadow-hover: 0 12px 36px rgba(49, 34, 24, 0.15);
@@ -52,6 +53,7 @@
     --sidebar: #090908;
     --sidebar-2: #151311;
     --sidebar-text: #faf7f3;
+    --button-primary: var(--mocha);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.22);
     --shadow: 0 10px 32px rgba(0, 0, 0, 0.32);
     --shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.4);
@@ -782,7 +784,7 @@ main {
                                                                       padding: 10px 17px;
                                                                       border-radius: 6px;
                                                                       color: #fffaf6;
-                                                                      background: var(--ink);
+                                                                      background: var(--button-primary);
                                                                       box-shadow: none;
                                                                   }
                                 
@@ -830,9 +832,15 @@ main {
                                                                   .btn:disabled,
                                                                   .icon-btn:disabled,
                                                                   .pill:disabled {
-                                                                      opacity: 0.42;
+                                                                      opacity: 0.62;
                                                                       cursor: not-allowed;
                                                                       box-shadow: none;
+                                                                  }
+
+                                                                  .btn:disabled {
+                                                                      border-color: var(--line);
+                                                                      color: var(--muted);
+                                                                      background: var(--paper3);
                                                                   }
                                 
                                                                   .icon-btn {
@@ -1006,12 +1014,25 @@ main {
                                                                   }
                                 
                                                                   .bars {
+                                                                      position: relative;
                                                                       display: flex;
                                                                       align-items: flex-end;
                                                                       gap: clamp(7px, 1.4vw, 13px);
                                                                       height: 190px;
                                                                       padding: 26px 8px 25px;
                                                                       border-bottom: 1px solid var(--line-strong);
+                                                                  }
+
+                                                                  .bars-empty {
+                                                                      position: absolute;
+                                                                      inset: 0 12px 25px;
+                                                                      display: grid;
+                                                                      place-items: center;
+                                                                      margin: 0;
+                                                                      color: var(--muted);
+                                                                      font-size: 0.78rem;
+                                                                      text-align: center;
+                                                                      pointer-events: none;
                                                                   }
                                 
                                                                   .bar {
@@ -1028,6 +1049,12 @@ main {
                                                                       cursor: pointer;
                                                                       box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
                                                                       transition: filter 180ms ease, transform 180ms var(--ease);
+                                                                  }
+
+                                                                  .bar.zero {
+                                                                      min-height: 0;
+                                                                      background: transparent;
+                                                                      box-shadow: none;
                                                                   }
                                 
                                                                   .bar:hover,
@@ -1257,8 +1284,7 @@ main {
                                                                   }
                                 
                                                                   .reward.disabled {
-                                                                      opacity: 0.56;
-                                                                      filter: saturate(0.35);
+                                                                      opacity: 1;
                                                                   }
                                 
                                                                   .module-card {
